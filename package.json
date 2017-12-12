@@ -9,6 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "dateformat": "^3.0.2",
     "vue": "^2.5.3",
     "vuetify": "^0.17.3"
   },

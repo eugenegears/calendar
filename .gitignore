@@ -10,3 +10,7 @@ yarn-error.log
 *.ntvs*
 *.njsproj
 *.sln
+
+# junk temporary files
+december.js
+december.raw

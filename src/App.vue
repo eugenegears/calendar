@@ -49,25 +49,25 @@
           <v-flex xs6>
             <strong>Day Filter:</strong>
             <v-btn-toggle multiple round v-model="showDays" v-on:change="toggleDays()">
-              <v-btn outline color="primary" value="sunday">
+              <v-btn outline color="primary">
                 Su
               </v-btn>
-              <v-btn outline color="primary" value="monday">
+              <v-btn outline color="primary">
                 Mo
               </v-btn>
-              <v-btn outline color="primary" value="tuesday">
+              <v-btn outline color="primary">
                 Tu
               </v-btn>
-              <v-btn outline color="primary" value="wednesday">
+              <v-btn outline color="primary">
                 We
               </v-btn>
-              <v-btn outline color="primary" value="thursday">
+              <v-btn outline color="primary">
                 Th
               </v-btn>
-              <v-btn outline color="primary" value="friday">
+              <v-btn outline color="primary">
                 Fr
               </v-btn>
-              <v-btn outline color="primary" value="saturday">
+              <v-btn outline color="primary">
                 Sa
               </v-btn>
             </v-btn-toggle>
@@ -76,13 +76,13 @@
           <v-flex xs6>
             <strong>Pace Filter:</strong>
             <v-btn-toggle multiple v-model="showSpeeds" v-on:change="toggleSpeeds()">
-              <v-btn outline dark color="primary" value="slow">
+              <v-btn outline dark color="primary">
                 10-12
               </v-btn>
-              <v-btn outline dark color="primary" value="medium">
+              <v-btn outline dark color="primary">
                 12-15
               </v-btn>
-              <v-btn outline dark color="primary" value="fast">
+              <v-btn outline dark color="primary">
                 16+
               </v-btn>
             </v-btn-toggle>
@@ -227,8 +227,10 @@ export default {
       },
 
       title: 'December 2017',
-      showSpeeds: ["slow", "medium", "fast"],
-      showDays: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
+
+      // showSpeeds and showDays will be filled in from localStorage
+      showSpeeds: [1],
+      showDays: [0, 1, 3, 6],
 
       toggleDays: function() {
         console.log(this.showDays)
@@ -246,21 +248,22 @@ export default {
 
       showSpeed: function (s) {
         if (/10./.test(s)) {
-          return _.includes(this.showSpeeds, "slow")
+          return _.includes(this.showSpeeds, 0)
           // return this.showSpeeds[0]
         } else if (/16/.test(s)) {
-          return _.includes(this.showSpeeds, "fast")
+          return _.includes(this.showSpeeds, 2)
           // return this.showSpeeds[2]
         } else {
-          return _.includes(this.showSpeeds, "medium")
+          return _.includes(this.showSpeeds, 1)
           // return this.showSpeeds[1]
         }
       },
       showDay: function (d) {
-        var dayNames = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+        // var dayNames = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
         var dateMillis = Date.parse(d)
         var dateObj = new Date(dateMillis)
-        return _.includes(this.showDays, dayNames[dateObj.getDay()])
+        // return _.includes(this.showDays, dayNames[dateObj.getDay()])
+        return _.includes(this.showDays, dateObj.getDay())
       },
       showSpeedAndDay: function (s, d) {
         var ss = this.showSpeed(s)

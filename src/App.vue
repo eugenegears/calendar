@@ -210,9 +210,21 @@
 <script>
 var dateFormat = require("dateformat")
 var _ = require("lodash")
-import { storageAvailable } from "./storage"
+import { storageAvailable, getZeroBasedArrayFromStorage, setArrayToStorage, populateStorage } from "./storage"
 
 export default {
+  mounted: function () {
+    // console.log("mounted, and value of showSpeeds is: " + this.showSpeeds)
+    var storage = window.localStorage
+    // if it exists and is empty (OK) or if it exists and has value (i.e. "truthy")
+    if (!(storage.getItem("speeds") === "" || storage.getItem("speeds"))) {
+      populateStorage()
+    }
+    this.showSpeeds = getZeroBasedArrayFromStorage("localStorage", "speeds", 3)
+    this.showDays = getZeroBasedArrayFromStorage("localStorage", "days", 7)
+      // console.log("showDays: " + this.showDays)
+      // console.log("showSpeeds: " + this.showSpeeds)
+  },
   data () {
     return {
       filter_enabled: true,
@@ -229,21 +241,17 @@ export default {
       title: 'December 2017',
 
       // showSpeeds and showDays will be filled in from localStorage
-      showSpeeds: [1],
-      showDays: [0, 1, 3, 6],
+      showSpeeds: [],
+      showDays: [],
 
       toggleDays: function() {
-        console.log(this.showDays)
+        // console.log("locally store this for days: " + this.showDays)
+        setArrayToStorage("localStorage", "days", this.showDays)
       },
 
       toggleSpeeds: function() {
-        console.log('about to toggle speed')
-        if (storageAvailable('localStorage')) {
-          console.log('storage IS available')
-        } else {
-          console.log('problem with storage')
-        }
-        console.log(this.showSpeeds)
+        // console.log('locally store this for speeds: ' + this.showSpeeds)
+        setArrayToStorage("localStorage", "speeds", this.showSpeeds)
       },
 
       showSpeed: function (s) {

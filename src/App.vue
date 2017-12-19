@@ -1,12 +1,12 @@
 <template>
   <v-app>
     <v-content>
-      <v-container grid-list-md text-md-center>
+      <v-container grid-list-md text-xs-center>
         <v-layout row wrap>
           <v-flex xs12>
             <h2>GEARs December 2017 Rides</h2>
           </v-flex>
-          <v-flex xs6>
+          <v-flex xs12 md6>
             <v-card>
               <v-card-text class="text-xs-left gears-intro">
                 GEARs (Greater Eugene Area Riders) invites all
@@ -24,7 +24,7 @@
               </v-card-text>
             </v-card>
           </v-flex>
-          <v-flex xs6>
+          <v-flex xs12 md6>
             <v-card>
               <v-card-text class="text-xs-left">
                 <p>
@@ -46,7 +46,7 @@
             </v-card>
           </v-flex>
 
-          <v-flex xs6>
+          <v-flex xs12 sm6 class="text-xs-left">
             <strong>Day Filter:</strong>
             <v-btn-toggle multiple round v-model="showDays" v-on:change="toggleDays()">
               <v-btn outline color="primary">
@@ -73,7 +73,7 @@
             </v-btn-toggle>
           </v-flex>
 
-          <v-flex xs6>
+          <v-flex xs12 sm6 class="text-xs-left text-sm-right">
             <strong>Pace Filter:</strong>
             <v-btn-toggle multiple v-model="showSpeeds" v-on:change="toggleSpeeds()">
               <v-btn outline dark color="primary">

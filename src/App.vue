@@ -204,6 +204,11 @@
               </v-card-text>
             </v-card>
           </v-flex>
+
+          <v-flex xs12>
+            <img src="static/gears_web_logo.png"/>
+          </v-flex>
+
         </v-layout>
       </v-container>
 

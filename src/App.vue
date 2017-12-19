@@ -158,17 +158,21 @@
               </template>
             </v-data-table>
           </v-flex>
-          <v-flex xs2>
-            <v-card>
-              <strong>Color Key:</strong>
-            </v-card>
-          </v-flex>
-          <v-flex xs4>
-            <v-card>
-              <div class="speed1 left ">10-12 mph leader pace</div>
-              <div class="speed2 left ">12-15 mph leader pace</div>
-              <div class="speed3 left ">16+ mph leader pace</div>
-            </v-card>
+          <v-flex xs12>
+            <table>
+              <tr>
+                <td><strong>Color Key:</strong></td>
+                <td class="speed1" align="left">10-12 MPH leader pace</td>
+              </tr>
+              <tr>
+                <td/>
+                <td class="speed2" align="left">12-15 MPH leader pace</td>
+              </tr>
+              <tr>
+                <td/>
+                <td class="speed3" align="left">16+ MPH leader pace</td>
+              </tr>
+            </table>
           </v-flex>
           <v-flex xs12>
             <v-card>

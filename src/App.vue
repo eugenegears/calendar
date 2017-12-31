@@ -6,7 +6,7 @@
           <v-flex xs12>
             <h2>GEARs December 2017 Rides</h2>
           </v-flex>
-          <v-flex xs12 md6>
+          <v-flex xs12 sm6>
             <v-card>
               <v-card-text class="text-xs-left gears-intro">
                 GEARs (Greater Eugene Area Riders) invites all
@@ -24,7 +24,7 @@
               </v-card-text>
             </v-card>
           </v-flex>
-          <v-flex xs12 md6>
+          <v-flex xs12 sm6>
             <v-card>
               <v-card-text class="text-xs-left">
                 <p>

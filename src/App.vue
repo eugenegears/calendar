@@ -109,7 +109,7 @@
               <template slot="items" slot-scope="rides">
                 <tr id="riderow"
                     v-show="showSpeedAndDay(rides.item.pace, rides.item.when)"
-                    v-bind:class="/10/.test(rides.item.pace) ? 'speed1' : /16/.test(rides.item.pace) ? 'speed3' : 'speed2'"
+                    v-bind:class="speedAndExpiredClasses(rides.item.pace, rides.item.when)"
                     >
 
                   <td class="date">
@@ -285,10 +285,21 @@ export default {
       showSpeedAndDay: function (s, d) {
         var ss = this.showSpeed(s)
         // console.log("showSpeed(" + s + "): " + ss)
-         var sd = this.showDay(d)
+        var sd = this.showDay(d)
         // console.log("showDay(" + d + "): " + sd)
         return ss && sd
         // return this.showSpeed(s) && this.showDay(d)
+      },
+
+      speedAndExpiredClasses: function (pace, date) {
+        var speedClass = /10/.test(pace) ? "speed1" : /16/.test(pace) ? "speed3" : "speed2"
+        var now = new Date()
+        var ridedate = Date.parse(date)
+        var expiredClass = ""
+        if (ridedate < now) {
+          expiredClass = "pastride"
+        }
+        return speedClass + " " + expiredClass
       },
 
       headers: [
@@ -303,6 +314,30 @@ export default {
         {text: 'Leader', value: 'leader'},
       ],
       rides: [
+        {
+        	"when": "Sat Dec 30 2017 09:30:00 GMT-0800 (PST)",
+        	"meet": "Alton Baker Park",
+        	"ridenum": "103e",
+        	"ridedesc": "Coburg Btm Loop to Bowers Rd",
+        	"pace": "12-15 mph",
+        	"ridelength": "39 miles",
+        	"food": "FS",
+        	"rating": "A",
+        	"leader": "Jeff Sprague",
+        	"phone": "541-484-4434",
+        },
+        {
+        	"when": "Sun Dec 31 2017 09:30:00 GMT-0800 (PST)",
+        	"meet": "Alton Baker Park",
+        	"ridenum": "31c",
+        	"ridedesc": "Doane and Briggs Hills via Lorane Hwy",
+        	"pace": "12-15 mph",
+        	"ridelength": "41 miles",
+        	"food": "BF",
+        	"rating": "C",
+        	"leader": "John Reidy",
+        	"phone": "805-807-5657",
+        },
         {
           "food": "BF",
           "leader": "Not a GEARs ride",
@@ -688,7 +723,9 @@ export default {
   .speed3 {
     background-color: #F7D1D3;
   }
-
+  .pastride {
+    color: #BBBBBB;
+  }
   .ridelength {
     white-space: nowrap;
   }

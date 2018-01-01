@@ -22,6 +22,7 @@ export function storageAvailable(type) {
 export function populateStorage() {
   setArrayToStorage("localStorage", "days", _.range(7))
   setArrayToStorage("localStorage", "speeds", _.range(3))
+  setArrayToStorage("localStorage", "expired", _.range(2))
 }
 
 

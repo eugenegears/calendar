@@ -46,7 +46,7 @@
             </v-card>
           </v-flex>
 
-          <v-flex xs12 sm6 class="text-xs-left">
+          <v-flex xs12 sm5 class="text-xs-left">
             <strong>Day Filter:</strong>
             <v-btn-toggle multiple round v-model="showDays" v-on:change="toggleDays()">
               <v-btn outline color="primary">
@@ -73,7 +73,19 @@
             </v-btn-toggle>
           </v-flex>
 
-          <v-flex xs12 sm6 class="text-xs-left text-sm-right">
+          <v-flex xs12 sm3 class="">
+            <strong>Show:</strong>
+            <v-btn-toggle multiple v-model="showExpireds" v-on:change="toggleExpired()">
+              <v-btn outline dark color="primary">
+                Past
+              </v-btn>
+              <v-btn outline dark color="primary">
+                Future
+              </v-btn>
+            </v-btn-toggle>
+          </v-flex>
+
+          <v-flex xs12 sm4 class="text-xs-left text-sm-right">
             <strong>Pace Filter:</strong>
             <v-btn-toggle multiple v-model="showSpeeds" v-on:change="toggleSpeeds()">
               <v-btn outline dark color="primary">
@@ -231,6 +243,7 @@ export default {
     }
     this.showSpeeds = getZeroBasedArrayFromStorage("localStorage", "speeds", 3)
     this.showDays = getZeroBasedArrayFromStorage("localStorage", "days", 7)
+    this.showExpireds = getZeroBasedArrayFromStorage("localStorage", "expired", 2)
       // console.log("showDays: " + this.showDays)
       // console.log("showSpeeds: " + this.showSpeeds)
   },
@@ -247,11 +260,12 @@ export default {
         return dateFormat(t, f)
       },
 
-      title: 'December 2017',
+      title: 'January 2018',
 
       // showSpeeds and showDays will be filled in from localStorage
       showSpeeds: [],
       showDays: [],
+      showExpireds: [],
 
       toggleDays: function() {
         // console.log("locally store this for days: " + this.showDays)
@@ -261,6 +275,10 @@ export default {
       toggleSpeeds: function() {
         // console.log('locally store this for speeds: ' + this.showSpeeds)
         setArrayToStorage("localStorage", "speeds", this.showSpeeds)
+      },
+
+      toggleExpired: function() {
+        setArrayToStorage("localStorage", "expired", this.showExpireds)
       },
 
       showSpeed: function (s) {
@@ -282,12 +300,31 @@ export default {
         // return _.includes(this.showDays, dayNames[dateObj.getDay()])
         return _.includes(this.showDays, dateObj.getDay())
       },
+      showExpired: function(d) {
+        if (_.includes(this.showExpireds, 0) && _.includes(this.showExpireds, 1)) {
+          return true
+        }
+        var now = new Date()
+        var ridedate = Date.parse(d)
+        if ((ridedate < now) && _.includes(this.showExpireds, 0)) {
+          // ride happened in the past, but we're showing past events
+          return true
+        }
+        console.log("dateinfo: " + ridedate + " " + now + " " + this.showExpireds)
+        if ((ridedate > now) && _.includes(this.showExpireds, 1)) {
+          // ride happens in the future, and we're showing future events
+          return true
+        }
+        return false
+      },
       showSpeedAndDay: function (s, d) {
         var ss = this.showSpeed(s)
         // console.log("showSpeed(" + s + "): " + ss)
         var sd = this.showDay(d)
         // console.log("showDay(" + d + "): " + sd)
-        return ss && sd
+
+        var se = this.showExpired(d)
+        return ss && sd && se
         // return this.showSpeed(s) && this.showDay(d)
       },
 

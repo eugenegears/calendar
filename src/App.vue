@@ -310,7 +310,7 @@ export default {
           // ride happened in the past, but we're showing past events
           return true
         }
-        console.log("dateinfo: " + ridedate + " " + now + " " + this.showExpireds)
+        //console.log("dateinfo: " + ridedate + " " + now + " " + this.showExpireds)
         if ((ridedate > now) && _.includes(this.showExpireds, 1)) {
           // ride happens in the future, and we're showing future events
           return true

@@ -108,7 +108,7 @@
           </v-flex> -->
 
           <v-flex xs12>
-            <v-data-table v-bind:headers="headers" v-bind:items="rides"
+            <v-data-table v-bind:headers="headers" v-bind:items="rides" item-key="when"
               hide-actions disable-initial-sort id="ridetable"
               >
               <template slot="headers" slot-scope="rides">
@@ -118,10 +118,39 @@
                   </th>
                 </tr>
               </template>
+              <template slot="expand" slot-scope="rides">
+                <!-- <v-container>
+                  hello world
+                </v-container> -->
+                <v-container fluid grid-list-md text-xs-left pa-0>
+                  <v-layout >
+                    <v-flex xs4>
+                      <v-card tile flat v-bind:href="rides.item.mapurl">
+                        <v-card-media v-bind:src="rides.item.mapimg" contain height=300px></v-card-media>
+                      </v-card>
+                    </v-flex>
+                    <v-flex xs7 pa-3 left>
+                      <h3>{{rides.item.ridenum}} - {{rides.item.ridedesc}}</h3>
+                      <ul style="list-style: none;">
+                        <li>Time: {{rides.item.when}}</li>
+                        <li>Location: {{rides.item.meet}}</li>
+                        <li>Pace: {{rides.item.pace}}</li>
+                        <li>Length: {{rides.item.ridelength}}</li>
+                        <li>Food?: {{rides.item.food}}</li>
+                        <li>Rating: {{rides.item.rating}}</li>
+                        <li>Leader: {{rides.item.leader}}</li>
+                        <li>Contact: {{rides.item.phone}}</li>
+                        <li>Cue Sheet: <a v-bind:href="rides.item.cuesheet">link</a></li>
+                      </ul>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+              </template>
               <template slot="items" slot-scope="rides">
                 <tr id="riderow"
                     v-show="showSpeedAndDay(rides.item.pace, rides.item.when)"
                     v-bind:class="speedAndExpiredClasses(rides.item.pace, rides.item.when)"
+                    v-on:click="rides.expanded = !rides.expanded"
                     >
 
                   <td class="date">
@@ -400,8 +429,11 @@ export default {
           "when": "Tue Jan 02 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/12/209c-Cue-Sheet-Sheet1.pdf",
           "food": "FS",
           "leader": "Garry Swanson",
+          "mapimg": "static/209c.png",
+          "mapurl": "http://www.gmap-pedometer.com/?r=2809433",
           "meet": "Alton Baker Park",
           "pace": "12-15 mph",
           "phone": "541-726-3997",

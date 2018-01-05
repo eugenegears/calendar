@@ -126,7 +126,7 @@
                   <v-layout >
                     <v-flex xs4>
                       <v-card tile flat v-bind:href="rides.item.mapurl">
-                        <v-card-media v-bind:src="rides.item.mapimg" contain height=300px></v-card-media>
+                        <v-card-media v-bind:src="rides.item.thumbnail" contain height=300px></v-card-media>
                       </v-card>
                     </v-flex>
                     <v-flex xs7 pa-3 left>
@@ -140,7 +140,12 @@
                         <li>Rating: {{rides.item.rating}}</li>
                         <li>Leader: {{rides.item.leader}}</li>
                         <li>Contact: {{rides.item.phone}}</li>
-                        <li>Cue Sheet: <a v-bind:href="rides.item.cuesheet">link</a></li>
+                        <li v-if="rides.item.cuesheet">
+                          Cue Sheet: <a v-bind:href="rides.item.cuesheet">link</a>
+                        </li>
+                        <li v-else>
+                          Cue Sheet: N/A
+                        </li>
                       </ul>
                     </v-flex>
                   </v-layout>
@@ -381,30 +386,6 @@ export default {
       ],
       rides: [
         {
-        	"when": "Sat Dec 30 2017 09:30:00 GMT-0800 (PST)",
-        	"meet": "Alton Baker Park",
-        	"ridenum": "103e",
-        	"ridedesc": "Coburg Btm Loop to Bowers Rd",
-        	"pace": "12-15 mph",
-        	"ridelength": "39 miles",
-        	"food": "FS",
-        	"rating": "A",
-        	"leader": "Jeff Sprague",
-        	"phone": "541-484-4434",
-        },
-        {
-        	"when": "Sun Dec 31 2017 09:30:00 GMT-0800 (PST)",
-        	"meet": "Alton Baker Park",
-        	"ridenum": "31c",
-        	"ridedesc": "Doane and Briggs Hills via Lorane Hwy",
-        	"pace": "12-15 mph",
-        	"ridelength": "41 miles",
-        	"food": "BF",
-        	"rating": "C",
-        	"leader": "John Reidy",
-        	"phone": "805-807-5657",
-        },
-        {
           "food": "BF",
           "leader": "Not a GEARs ride",
           "meet": "5th St. Market",
@@ -432,8 +413,7 @@ export default {
           "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/12/209c-Cue-Sheet-Sheet1.pdf",
           "food": "FS",
           "leader": "Garry Swanson",
-          "mapimg": "static/209c.png",
-          "mapurl": "http://www.gmap-pedometer.com/?r=2809433",
+          "mapurl": null,
           "meet": "Alton Baker Park",
           "pace": "12-15 mph",
           "phone": "541-726-3997",
@@ -441,11 +421,14 @@ export default {
           "ridedesc": "Alvadore via Meadowview",
           "ridelength": "34 Miles",
           "ridenum": "209c",
+          "thumbnail": "static/209c.png",
           "when": "Thu Jan 04 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/406a-Cue-Sheet.pdf",
           "food": "FS",
           "leader": "Larry Diffie",
+          "mapurl": "https://ridewithgps.com/routes/22561777",
           "meet": "Alton Baker Park",
           "pace": "10-12 mph",
           "phone": "541-729-7923",
@@ -453,11 +436,14 @@ export default {
           "ridedesc": "Weyerhauser, Pleasant Hill, Out and Back",
           "ridelength": "39 Miles",
           "ridenum": "406a",
+          "thumbnail": "static/406a.png",
           "when": "Sat Jan 06 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/406a-Cue-Sheet.pdf",
           "food": "FS",
           "leader": "Sue Wolling",
+          "mapurl": "https://ridewithgps.com/routes/22561777",
           "meet": "Alton Baker Park",
           "pace": "12-15 mph",
           "phone": "541-345-2110",
@@ -465,11 +451,14 @@ export default {
           "ridedesc": "Weyerhauser, Pleasant Hill, Out and Back",
           "ridelength": "39 Miles",
           "ridenum": "406a",
+          "thumbnail": "static/406a.png",
           "when": "Sat Jan 06 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/406a-Cue-Sheet.pdf",
           "food": "FS",
           "leader": "Dave Zumbrunnen",
+          "mapurl": "https://ridewithgps.com/routes/22561777",
           "meet": "Alton Baker Park",
           "pace": "16+ mph",
           "phone": "541-972-9746",
@@ -477,11 +466,14 @@ export default {
           "ridedesc": "Weyerhauser, Pleasant Hill, Out and Back",
           "ridelength": "39 Miles",
           "ridenum": "406a",
+          "thumbnail": "static/406a.png",
           "when": "Sat Jan 06 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/10/319b-Cue-Sheet1.pdf",
           "food": "BF",
           "leader": "John Reidy",
+          "mapurl": "http://www.gmap-pedometer.com/?r=6169490",
           "meet": "Alton Baker Park",
           "pace": "12-15 mph",
           "phone": "805-807-5657",
@@ -489,6 +481,7 @@ export default {
           "ridedesc": "Petzold, Out and Back",
           "ridelength": "35 Miles",
           "ridenum": "319b",
+          "thumbnail": "static/319b.png",
           "when": "Sun Jan 07 2018 09:30:00 GMT-0800 (PST)"
         },
         {
@@ -504,8 +497,10 @@ export default {
           "when": "Mon Jan 08 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/125b-Cue-Sheet.pdf",
           "food": "BF",
           "leader": "Paula Erickson",
+          "mapurl": "https://ridewithgps.com/routes/17387599",
           "meet": "Alton Baker Park",
           "pace": "10-12 mph",
           "phone": "541-998-8420",
@@ -513,6 +508,7 @@ export default {
           "ridedesc": "Clearwater path to McKenzie View",
           "ridelength": "29 Miles",
           "ridenum": "125b",
+          "thumbnail": "static/125b.png",
           "when": "Tue Jan 09 2018 09:30:00 GMT-0800 (PST)"
         },
         {
@@ -528,8 +524,10 @@ export default {
           "when": "Tue Jan 09 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/2014/01/125a-Cue-Sheet-.pdf",
           "food": "BF",
           "leader": "Steve Hecker",
+          "mapurl": "http://www.gmap-pedometer.com/?r=6295596",
           "meet": "Alton Baker Park",
           "pace": "12-15 mph",
           "phone": "541-954-1161",
@@ -537,11 +535,14 @@ export default {
           "ridedesc": "Clearwater Path and Scenic Springfield",
           "ridelength": "25 Miles",
           "ridenum": "125a",
+          "thumbnail": "static/125a.png",
           "when": "Thu Jan 11 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/02/114b-Cue-Sheet-Sheet1.pdf",
           "food": "FS",
           "leader": "Paula Erickson",
+          "mapurl": "http://www.gmap-pedometer.com/?r=5809459",
           "meet": "Alton Baker Park",
           "pace": "10-12 mph",
           "phone": "541-998-8420",
@@ -549,11 +550,14 @@ export default {
           "ridedesc": "McKenzie View and Sunderman Rd",
           "ridelength": "35 Miles",
           "ridenum": "114b",
+          "thumbnail": "static/114b.png",
           "when": "Sat Jan 13 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/03/106-Cue-Sheet.pdf",
           "food": "FS",
           "leader": "Garry Swanson",
+          "mapurl": "http://www.gmap-pedometer.com/?r=5809265",
           "meet": "Alton Baker Park",
           "pace": "12-15 mph",
           "phone": "541-726-3997",
@@ -561,11 +565,14 @@ export default {
           "ridedesc": "Wendling Covered Bridge",
           "ridelength": "51 Miles",
           "ridenum": "106a",
+          "thumbnail": "static/106a.png",
           "when": "Sat Jan 13 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/02/302e-Cue-Sheet-Sheet1.pdf",
           "food": "FS",
           "leader": "Jackie Murdoff",
+          "mapurl": "http://www.gmap-pedometer.com/?r=5834240",
           "meet": "Alton Baker Park",
           "pace": "12-15 mph",
           "phone": "541-345-3941",
@@ -573,11 +580,14 @@ export default {
           "ridedesc": "Veneta via Bolton Hill flex - via Petzold, Central",
           "ridelength": "49 Miles",
           "ridenum": "302e",
+          "thumbnail": "static/302e.png",
           "when": "Sun Jan 14 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/02/302e-Cue-Sheet-Sheet1.pdf",
           "food": "FS",
           "leader": "Jeff Sprague",
+          "mapurl": "http://www.gmap-pedometer.com/?r=5834240",
           "meet": "Alton Baker Park",
           "pace": "16+ mph",
           "phone": "541-484-4434",
@@ -585,11 +595,14 @@ export default {
           "ridedesc": "Veneta via Bolton Hill flex - via Petzold, Central",
           "ridelength": "49 Miles",
           "ridenum": "302e",
+          "thumbnail": "static/302e.png",
           "when": "Sun Jan 14 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/02/114b-Cue-Sheet-Sheet1.pdf",
           "food": "FS",
           "leader": "Larry Diffie",
+          "mapurl": "http://www.gmap-pedometer.com/?r=5809459",
           "meet": "Alton Baker Park",
           "pace": "10-12 mph",
           "phone": "541-729-7923",
@@ -597,11 +610,14 @@ export default {
           "ridedesc": "McKenzie View and Sunderman Rd",
           "ridelength": "35 Miles",
           "ridenum": "114b",
+          "thumbnail": "static/114b.png",
           "when": "Thu Jan 18 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/02/114b-Cue-Sheet-Sheet1.pdf",
           "food": "FS",
           "leader": "Ted Conover",
+          "mapurl": "http://www.gmap-pedometer.com/?r=5809459",
           "meet": "Alton Baker Park",
           "pace": "12-15 mph",
           "phone": "541-344-4994",
@@ -609,11 +625,14 @@ export default {
           "ridedesc": "McKenzie View and Sunderman Rd",
           "ridelength": "35 Miles",
           "ridenum": "114b",
+          "thumbnail": "static/114b.png",
           "when": "Thu Jan 18 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://www.eugenegears.org/ridesheets/417a.pdf",
           "food": "FS",
           "leader": "Mel Huey",
+          "mapurl": "http://www.gmap-pedometer.com/?r=2891876",
           "meet": "Alton Baker Park",
           "pace": "10-12 mph",
           "phone": "541-255-2741",
@@ -621,11 +640,14 @@ export default {
           "ridedesc": "Upper Camp Creek flex - go out Clearwater",
           "ridelength": "42 Miles",
           "ridenum": "417a",
+          "thumbnail": "static/417a.png",
           "when": "Sat Jan 20 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://www.eugenegears.org/ridesheets/417a.pdf",
           "food": "FS",
           "leader": "Tyler Stewart",
+          "mapurl": "http://www.gmap-pedometer.com/?r=2891876",
           "meet": "Alton Baker Park",
           "pace": "12-15 mph",
           "phone": "541-954-2009",
@@ -633,11 +655,14 @@ export default {
           "ridedesc": "Upper Camp Creek flex - go out Clearwater",
           "ridelength": "42 Miles",
           "ridenum": "417a",
+          "thumbnail": "static/417a.png",
           "when": "Sat Jan 20 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/02/320a-Cue-Sheet-Sheet1.pdf",
           "food": "FS",
           "leader": "Ray Linneman",
+          "mapurl": "http://www.gmap-pedometer.com/?r=5813632",
           "meet": "Alton Baker Park",
           "pace": "12-15 mph",
           "phone": "458-205-1497",
@@ -645,6 +670,7 @@ export default {
           "ridedesc": "River Dr and Howe Lane",
           "ridelength": "41 Miles",
           "ridenum": "320a",
+          "thumbnail": "static/320a.png",
           "when": "Sun Jan 21 2018 09:30:00 GMT-0800 (PST)"
         },
         {
@@ -660,8 +686,10 @@ export default {
           "when": "Mon Jan 22 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/05/215b-Cue-Sheet.pdf",
           "food": "FS",
           "leader": "Paula Erickson",
+          "mapurl": "http://www.gmap-pedometer.com/?r=5809957",
           "meet": "Alton Baker Park",
           "pace": "10-12 mph",
           "phone": "541-998-8420",
@@ -669,6 +697,7 @@ export default {
           "ridedesc": "Alvadore & Fern Ridge path",
           "ridelength": "34 Miles",
           "ridenum": "215b",
+          "thumbnail": "static/215b.png",
           "when": "Tue Jan 23 2018 09:30:00 GMT-0800 (PST)"
         },
         {
@@ -684,8 +713,10 @@ export default {
           "when": "Tue Jan 23 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/2014/01/125a-Cue-Sheet-.pdf",
           "food": "BF",
           "leader": "Mike Cantrell",
+          "mapurl": "http://www.gmap-pedometer.com/?r=6295596",
           "meet": "Alton Baker Park",
           "pace": "12-15 mph",
           "phone": "541-342-7649",
@@ -693,11 +724,14 @@ export default {
           "ridedesc": "Clearwater Trail and Scenic Springfield",
           "ridelength": "25 Miles",
           "ridenum": "125a",
+          "thumbnail": "static/125a.png",
           "when": "Thu Jan 25 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://www.eugenegears.org/ridesheets/315a.pdf",
           "food": "FS",
           "leader": "Paula Erickson",
+          "mapurl": "http://www.gmap-pedometer.com/?r=2852832",
           "meet": "Alton Baker Park",
           "pace": "10-12 mph",
           "phone": "541-998-8420",
@@ -705,11 +739,14 @@ export default {
           "ridedesc": "Creswell (Town)",
           "ridelength": "34 Miles",
           "ridenum": "315a",
+          "thumbnail": "static/315a.png",
           "when": "Sat Jan 27 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/06/310b-CueSheet-Sheet1.pdf",
           "food": "BF",
           "leader": "Jackie Murdoff",
+          "mapurl": "http://www.gmap-pedometer.com/?r=2852251",
           "meet": "Alton Baker Park",
           "pace": "12-15 mph",
           "phone": "541-345-3941",
@@ -717,11 +754,14 @@ export default {
           "ridedesc": "Dillard Rd, Cloverdale, flex - add Bear Creek, Rogers",
           "ridelength": "40 Miles",
           "ridenum": "310b",
+          "thumbnail": "static/310b.png",
           "when": "Sat Jan 27 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/03/207a-Cue-Sheet.pdf",
           "food": "FS",
           "leader": "Mike Cantrell",
+          "mapurl": "http://www.gmap-pedometer.com/?r=5810033",
           "meet": "Alton Baker Park",
           "pace": "12-15 mph",
           "phone": "541-342-7649",
@@ -729,11 +769,14 @@ export default {
           "ridedesc": "Franklin Firehouse",
           "ridelength": "39 Miles",
           "ridenum": "207a",
+          "thumbnail": "static/207a.png",
           "when": "Sun Jan 28 2018 09:30:00 GMT-0800 (PST)"
         },
         {
+          "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/03/207a-Cue-Sheet.pdf",
           "food": "FS",
           "leader": "Jeff Sprague",
+          "mapurl": "http://www.gmap-pedometer.com/?r=5810033",
           "meet": "Alton Baker Park",
           "pace": "16+ mph",
           "phone": "541-484-4434",
@@ -741,6 +784,7 @@ export default {
           "ridedesc": "Franklin Firehouse",
           "ridelength": "39 Miles",
           "ridenum": "207a",
+          "thumbnail": "static/207a.png",
           "when": "Sun Jan 28 2018 09:30:00 GMT-0800 (PST)"
         },
         {

@@ -129,7 +129,7 @@
                     <v-flex xs7 pa-3 left>
                       <h3>{{rides.item.ridenum}} - {{rides.item.ridedesc}}</h3>
                       <ul style="list-style: none;">
-                        <li>Time: {{rides.item.when}}</li>
+                        <li>Time: {{ dateFormat(rides.item.when, "ddd mmm dd HH:MM TT")}}</li>
                         <li>Location: {{rides.item.meet}}</li>
                         <li>Pace: {{rides.item.pace}}</li>
                         <li>Length: {{rides.item.ridelength}}</li>

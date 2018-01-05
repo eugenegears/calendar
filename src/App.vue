@@ -119,8 +119,8 @@
                 </tr>
               </template>
               <template slot="expand" slot-scope="rides">
-                <v-container fluid grid-list-md text-xs-left pa-0>
-                  <v-layout >
+                <v-container grid-list-md text-xs-left pa-0>
+                  <v-layout align-center>
                     <v-flex xs4>
                       <v-card tile flat v-bind:href="rides.item.mapurl">
                         <v-card-media v-bind:src="rides.item.thumbnail" contain height=300px></v-card-media>

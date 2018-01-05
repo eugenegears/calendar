@@ -119,9 +119,6 @@
                 </tr>
               </template>
               <template slot="expand" slot-scope="rides">
-                <!-- <v-container>
-                  hello world
-                </v-container> -->
                 <v-container fluid grid-list-md text-xs-left pa-0>
                   <v-layout >
                     <v-flex xs4>

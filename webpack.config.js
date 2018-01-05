@@ -1,8 +1,19 @@
 var path = require('path')
 var webpack = require('webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/main.js',
+  plugins: [
+    new CopyWebpackPlugin([
+      {
+        from: './*.html'
+      },
+      {
+        from: './static/*.png'
+      },
+    ])
+  ],
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',

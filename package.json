@@ -6,8 +6,10 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot --host 192.168.0.22",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "deploy": "node ./node_modules/vue-gh-pages/index.js"
   },
+  "homepage": "git@github.com:eugenegears/calendar",
   "dependencies": {
     "dateformat": "^3.0.2",
     "vue": "^2.5.3",
@@ -25,6 +27,7 @@
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
+    "vue-gh-pages": "^1.8.8",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.5.3",
     "webpack": "^3.6.0",

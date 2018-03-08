@@ -12,6 +12,7 @@
   "homepage": "git@github.com:eugenegears/calendar",
   "dependencies": {
     "dateformat": "^3.0.2",
+    "ssri": "^5.2.4",
     "vue": "^2.5.3",
     "vuetify": "^0.17.3"
   },

@@ -1,126 +1,126 @@
 <template>
-  <v-app>
-    <v-content>
-      <v-container grid-list-md text-xs-center>
-        <v-layout row wrap>
-          <v-flex xs12>
-            <h2>GEARs April 2018 Rides</h2>
-          </v-flex>
-          <v-flex xs12 sm6>
-            <v-card>
-              <v-card-text class="text-xs-left gears-intro">
-                GEARs (Greater Eugene Area Riders) invites all
-                bicyclists to join in riding together through some
-                beautiful bicycling terrain. We require that all
-                participants wear a bike helmet and bring a bike in
-                safe riding condition. A frame tire pump, tube/patch
-                kit, basic tools, full water bottle and appropriate
-                clothing are strongly encouraged. Ride leaders will
-                help to ensure that you have a safe and pleasant
-                experience. If you have questions about a
-                scheduled ride, feel free to contact the ride leader
-                or Ride Coordinator Garry Swanson at
-                541-726-3997 or garry@eugenegears.org.
-              </v-card-text>
-            </v-card>
-          </v-flex>
-          <v-flex xs12 sm6>
-            <v-card>
-              <v-card-text class="text-xs-left">
-                <p>
-                  <strong>Terrain Key:</strong><br>
-                  <strong>A:</strong> Flat with gently rolling terrain.<br>
-                  <strong>B:</strong> Rolling Terrain with a few short, steep climbs.<br>
-                  <strong>C:</strong> Moderate rolling terrain with steeper, longer climbs.<br>
-                  <strong>D:</strong> Demanding terrain with frequent steep and/or sustained climbs.<br>
-                  <strong>Note:</strong> You should be an experienced cyclist to participate and enjoy
-                  C and D rides, or rides over 50 miles.
-                </p>
-                <p>
-                  <strong>Food Key:</strong><br>
-                  <strong>FS</strong> - Food store on route<br>
-                  <strong>FR</strong> - Restaurant stop<br>
-                  <strong>BF</strong> - Bring food<br>
-                </p>
-              </v-card-text>
-            </v-card>
-          </v-flex>
-
-          <v-flex xs12 sm5 class="text-xs-left">
-            <strong>Day Filter:</strong>
-            <v-btn-toggle multiple round v-model="showDays" v-on:change="toggleDays()">
-              <v-btn outline color="primary">
-                Su
-              </v-btn>
-              <v-btn outline color="primary">
-                Mo
-              </v-btn>
-              <v-btn outline color="primary">
-                Tu
-              </v-btn>
-              <v-btn outline color="primary">
-                We
-              </v-btn>
-              <v-btn outline color="primary">
-                Th
-              </v-btn>
-              <v-btn outline color="primary">
-                Fr
-              </v-btn>
-              <v-btn outline color="primary">
-                Sa
-              </v-btn>
-            </v-btn-toggle>
-          </v-flex>
-
-          <v-flex xs12 sm3 class="">
-            <strong>Show:</strong>
-            <v-btn-toggle multiple v-model="showExpireds" v-on:change="toggleExpired()">
-              <v-btn outline dark color="primary">
-                Past
-              </v-btn>
-              <v-btn outline dark color="primary">
-                Future
-              </v-btn>
-            </v-btn-toggle>
-          </v-flex>
-
-          <v-flex xs12 sm4 class="text-xs-left text-sm-right">
-            <strong>Pace Filter:</strong>
-            <v-btn-toggle multiple v-model="showSpeeds" v-on:change="toggleSpeeds()">
-              <v-btn outline dark color="primary">
-                10-12
-              </v-btn>
-              <v-btn outline dark color="primary">
-                12-15
-              </v-btn>
-              <v-btn outline dark color="primary">
-                16+
-              </v-btn>
-            </v-btn-toggle>
-          </v-flex>
-
-          <!-- <v-flex xs12 md12 lg12>
-            <v-btn>
-              filters
-              <v-switch class="pa-0" color="green" v-model="filter_enabled"></v-switch>
+<v-app>
+  <v-content>
+    <v-container grid-list-md text-xs-center>
+      <v-layout row wrap>
+        <v-flex xs12>
+          <h2>GEARs April 2018 Rides</h2>
+        </v-flex>
+        <v-flex xs12 sm6>
+          <v-card>
+            <v-card-text class="text-xs-left gears-intro">
+              GEARs (Greater Eugene Area Riders) invites all
+              bicyclists to join in riding together through some
+              beautiful bicycling terrain. We require that all
+              participants wear a bike helmet and bring a bike in
+              safe riding condition. A frame tire pump, tube/patch
+              kit, basic tools, full water bottle and appropriate
+              clothing are strongly encouraged. Ride leaders will
+              help to ensure that you have a safe and pleasant
+              experience. If you have questions about a
+              scheduled ride, feel free to contact the ride leader
+              or Ride Coordinator Garry Swanson at
+              541-726-3997 or garry@eugenegears.org.
+            </v-card-text>
+          </v-card>
+        </v-flex>
+        <v-flex xs12 sm6>
+          <v-card>
+            <v-card-text class="text-xs-left">
+              <p>
+                <strong>Terrain Key:</strong><br>
+                <strong>A:</strong> Flat with gently rolling terrain.<br>
+                <strong>B:</strong> Rolling Terrain with a few short, steep climbs.<br>
+                <strong>C:</strong> Moderate rolling terrain with steeper, longer climbs.<br>
+                <strong>D:</strong> Demanding terrain with frequent steep and/or sustained climbs.<br>
+                <strong>Note:</strong> You should be an experienced cyclist to participate and enjoy
+                C and D rides, or rides over 50 miles.
+              </p>
+              <p>
+                <strong>Food Key:</strong><br>
+                <strong>FS</strong> - Food store on route<br>
+                <strong>FR</strong> - Restaurant stop<br>
+                <strong>BF</strong> - Bring food<br>
+              </p>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+        
+        <v-flex xs12 sm5 class="text-xs-left">
+          <strong>Day Filter:</strong>
+          <v-btn-toggle multiple round v-model="showDays" v-on:change="toggleDays()">
+            <v-btn outline color="primary">
+              Su
             </v-btn>
-          </v-flex> -->
-
-          <v-flex xs12>
-            <v-data-table v-bind:headers="headers" v-bind:items="rides" item-key="when"
-              hide-actions disable-initial-sort id="ridetable"
-              >
-              <template slot="headers" slot-scope="rides">
-                <tr align="left" id="rideheader">
-                  <th v-for="header in rides.headers" class="rideheadercell">
-                    {{ header.text }}
-                  </th>
-                </tr>
-              </template>
-              <template slot="expand" slot-scope="rides">
-                <v-container grid-list-md text-xs-left pa-0>
-                  <v-layout align-center>
+            <v-btn outline color="primary">
+              Mo
+            </v-btn>
+            <v-btn outline color="primary">
+              Tu
+            </v-btn>
+            <v-btn outline color="primary">
+              We
+            </v-btn>
+            <v-btn outline color="primary">
+              Th
+            </v-btn>
+            <v-btn outline color="primary">
+              Fr
+            </v-btn>
+            <v-btn outline color="primary">
+              Sa
+            </v-btn>
+          </v-btn-toggle>
+        </v-flex>
+        
+        <v-flex xs12 sm3 class="">
+          <strong>Show:</strong>
+          <v-btn-toggle multiple v-model="showExpireds" v-on:change="toggleExpired()">
+            <v-btn outline dark color="primary">
+              Past
+            </v-btn>
+            <v-btn outline dark color="primary">
+              Future
+            </v-btn>
+          </v-btn-toggle>
+        </v-flex>
+        
+        <v-flex xs12 sm4 class="text-xs-left text-sm-right">
+          <strong>Pace Filter:</strong>
+          <v-btn-toggle multiple v-model="showSpeeds" v-on:change="toggleSpeeds()">
+            <v-btn outline dark color="primary">
+              10-12
+            </v-btn>
+            <v-btn outline dark color="primary">
+              12-15
+            </v-btn>
+            <v-btn outline dark color="primary">
+              16+
+            </v-btn>
+          </v-btn-toggle>
+        </v-flex>
+        
+        <!-- <v-flex xs12 md12 lg12>
+             <v-btn>
+               filters
+               <v-switch class="pa-0" color="green" v-model="filter_enabled"></v-switch>
+             </v-btn>
+        </v-flex> -->
+        
+        <v-flex xs12>
+          <v-data-table v-bind:headers="headers" v-bind:items="rides" item-key="when"
+                        hide-actions disable-initial-sort id="ridetable"
+                        >
+            <!-- <template slot="headers" slot-scope="rides"> -->
+            <!--   <tr align="left" id="rideheader"> -->
+            <!--     <th v-for="header in rides.headers" class="rideheadercell"> -->
+            <!--       {{ header.text }} -->
+            <!--     </th> -->
+            <!--   </tr> -->
+            <!-- </template> -->
+            <template slot="expand" slot-scope="rides">
+              <v-container grid-list-md text-xs-left pa-0>
+                <v-layout align-center>
                     <v-flex xs4>
                       <v-card tile flat v-bind:href="rides.item.mapurl">
                         <v-card-media v-bind:src="rides.item.thumbnail" contain height=300px></v-card-media>
@@ -163,7 +163,7 @@
                       </span>
                   </td>
 
-                  <td class="where">
+                  <td class="where hidden-xs-only">
                     {{ dateFormat(rides.item.when, 'h:MMTT') }}
                     {{ rides.item.meet }}
                   </td>
@@ -174,7 +174,7 @@
                     {{ rides.item.ridedesc }}
                   </td>
 
-                  <td class="pace">
+                  <td class="pace hidden-xs-only">
                     <span>
                       {{ rides.item.pace }}
                     </span>
@@ -184,15 +184,17 @@
                     {{ rides.item.ridelength }}
                   </td>
 
-                  <td>{{ rides.item.food }}</td>
+                  <td class="hidden-xs-only">
+                    {{ rides.item.food }}
+                  </td>
 
-                  <td>
+                  <td class="hidden-xs-only">
                     <strong>
                       {{ rides.item.rating }}
                     </strong>
                   </td>
 
-                  <td class="leader">
+                  <td class="leader hidden-xs-only">
                     {{ rides.item.leader }}
                     <br/>
                     {{ rides.item.phone }}
@@ -265,121 +267,175 @@ var _ = require("lodash")
 import { storageAvailable, getZeroBasedArrayFromStorage, setArrayToStorage, populateStorage } from "./storage"
 
 export default {
-  mounted: function () {
-    // console.log("mounted, and value of showSpeeds is: " + this.showSpeeds)
-    var storage = window.localStorage
-    // if it exists and is empty (OK) or if it exists and has value (i.e. "truthy")
-    if (!(storage.getItem("speeds") === "" || storage.getItem("speeds"))) {
-      populateStorage()
-    }
-    this.showSpeeds = getZeroBasedArrayFromStorage("localStorage", "speeds", 3)
-    this.showDays = getZeroBasedArrayFromStorage("localStorage", "days", 7)
-    this.showExpireds = getZeroBasedArrayFromStorage("localStorage", "expired", 2)
-      // console.log("showDays: " + this.showDays)
-      // console.log("showSpeeds: " + this.showSpeeds)
-  },
-  data () {
-    return {
-      filter_enabled: true,
-      dayOfWeek: function (d) {
-        return dateFormat(d, "dddd")
-      },
-      shortDate: function (d) {
-        return dateFormat(d, "mmmm d")
-      },
-      dateFormat: function (t, f) {
-        return dateFormat(t, f)
-      },
-
-      title: 'April 2018',
-
-      // showSpeeds and showDays will be filled in from localStorage
-      showSpeeds: [],
-      showDays: [],
-      showExpireds: [],
-
-      toggleDays: function() {
-        // console.log("locally store this for days: " + this.showDays)
-        setArrayToStorage("localStorage", "days", this.showDays)
-      },
-
-      toggleSpeeds: function() {
-        // console.log('locally store this for speeds: ' + this.showSpeeds)
-        setArrayToStorage("localStorage", "speeds", this.showSpeeds)
-      },
-
-      toggleExpired: function() {
-        setArrayToStorage("localStorage", "expired", this.showExpireds)
-      },
-
-      showSpeed: function (s) {
-        if (/10./.test(s)) {
-          return _.includes(this.showSpeeds, 0)
-          // return this.showSpeeds[0]
-        } else if (/16/.test(s)) {
-          return _.includes(this.showSpeeds, 2)
-          // return this.showSpeeds[2]
-        } else {
-          return _.includes(this.showSpeeds, 1)
-          // return this.showSpeeds[1]
+    mounted: function () {
+        // console.log("mounted, and value of showSpeeds is: " + this.showSpeeds)
+        var storage = window.localStorage
+        // if it exists and is empty (OK) or if it exists and has value (i.e. "truthy")
+        if (!(storage.getItem("speeds") === "" || storage.getItem("speeds"))) {
+            populateStorage()
         }
-      },
-      showDay: function (d) {
-        // var dayNames = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
-        var dateMillis = Date.parse(d)
-        var dateObj = new Date(dateMillis)
-        // return _.includes(this.showDays, dayNames[dateObj.getDay()])
-        return _.includes(this.showDays, dateObj.getDay())
-      },
-      showExpired: function(d) {
-        if (_.includes(this.showExpireds, 0) && _.includes(this.showExpireds, 1)) {
-          return true
-        }
-        var now = new Date()
-        var ridedate = Date.parse(d)
-        if ((ridedate < now) && _.includes(this.showExpireds, 0)) {
-          // ride happened in the past, but we're showing past events
-          return true
-        }
-        //console.log("dateinfo: " + ridedate + " " + now + " " + this.showExpireds)
-        if ((ridedate > now) && _.includes(this.showExpireds, 1)) {
-          // ride happens in the future, and we're showing future events
-          return true
-        }
-        return false
-      },
-      showSpeedAndDay: function (s, d) {
-        var ss = this.showSpeed(s)
-        // console.log("showSpeed(" + s + "): " + ss)
-        var sd = this.showDay(d)
-        // console.log("showDay(" + d + "): " + sd)
-
-        var se = this.showExpired(d)
-        return ss && sd && se
-        // return this.showSpeed(s) && this.showDay(d)
-      },
-
-      speedAndExpiredClasses: function (pace, date) {
-        var speedClass = /10/.test(pace) ? "speed1" : /16/.test(pace) ? "speed3" : "speed2"
-        var now = new Date()
-        var ridedate = Date.parse(date)
-        var expiredClass = ""
-        if (ridedate < now) {
-          expiredClass = "pastride"
-        }
-        return speedClass + " " + expiredClass
-      },
-
-      headers: [
-        {text: 'Date', value: 'when'},
-        {text: 'Time/Place', value: 'meet'},
-        {text: 'Ride #', value: 'ridenum'},
-        {text: 'Description', value: 'ridedesc'},
-        {text: 'Pace', value: 'pace'},
-        {text: 'Length', value: 'ridelength'},
-        {text: 'Food?', value: 'food'},
-        {text: 'Rating', value: 'rating'},
-        {text: 'Leader', value: 'leader'},
+        this.showSpeeds = getZeroBasedArrayFromStorage("localStorage", "speeds", 3)
+        this.showDays = getZeroBasedArrayFromStorage("localStorage", "days", 7)
+        this.showExpireds = getZeroBasedArrayFromStorage("localStorage", "expired", 2)
+        // console.log("showDays: " + this.showDays)
+        // console.log("showSpeeds: " + this.showSpeeds)
+    },
+    data () {
+        return {
+            filter_enabled: true,
+            dayOfWeek: function (d) {
+                return dateFormat(d, "dddd")
+            },
+            shortDate: function (d) {
+                return dateFormat(d, "mmmm d")
+            },
+            dateFormat: function (t, f) {
+                return dateFormat(t, f)
+            },
+            
+            title: 'April 2018',
+            
+            // showSpeeds and showDays will be filled in from localStorage
+            showSpeeds: [],
+            showDays: [],
+            showExpireds: [],
+            
+            toggleDays: function() {
+                // console.log("locally store this for days: " + this.showDays)
+                setArrayToStorage("localStorage", "days", this.showDays)
+            },
+            
+            toggleSpeeds: function() {
+                // console.log('locally store this for speeds: ' + this.showSpeeds)
+                setArrayToStorage("localStorage", "speeds", this.showSpeeds)
+            },
+            
+            toggleExpired: function() {
+                setArrayToStorage("localStorage", "expired", this.showExpireds)
+            },
+            
+            showSpeed: function (s) {
+                if (/10./.test(s)) {
+                    return _.includes(this.showSpeeds, 0)
+                    // return this.showSpeeds[0]
+                } else if (/16/.test(s)) {
+                    return _.includes(this.showSpeeds, 2)
+                    // return this.showSpeeds[2]
+                } else {
+                    return _.includes(this.showSpeeds, 1)
+                    // return this.showSpeeds[1]
+                }
+            },
+            showDay: function (d) {
+                // var dayNames = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+                var dateMillis = Date.parse(d)
+                var dateObj = new Date(dateMillis)
+                // return _.includes(this.showDays, dayNames[dateObj.getDay()])
+                return _.includes(this.showDays, dateObj.getDay())
+            },
+            showExpired: function(d) {
+                if (_.includes(this.showExpireds, 0) && _.includes(this.showExpireds, 1)) {
+                    return true
+                }
+                var now = new Date()
+                var ridedate = Date.parse(d)
+                if ((ridedate < now) && _.includes(this.showExpireds, 0)) {
+                    // ride happened in the past, but we're showing past events
+                    return true
+                }
+                //console.log("dateinfo: " + ridedate + " " + now + " " + this.showExpireds)
+                if ((ridedate > now) && _.includes(this.showExpireds, 1)) {
+                    // ride happens in the future, and we're showing future events
+                    return true
+                }
+                return false
+            },
+            showSpeedAndDay: function (s, d) {
+                var ss = this.showSpeed(s)
+                // console.log("showSpeed(" + s + "): " + ss)
+                var sd = this.showDay(d)
+                // console.log("showDay(" + d + "): " + sd)
+                
+                var se = this.showExpired(d)
+                return ss && sd && se
+                // return this.showSpeed(s) && this.showDay(d)
+            },
+            
+            speedAndExpiredClasses: function (pace, date) {
+                var speedClass = /10/.test(pace) ? "speed1" : /16/.test(pace) ? "speed3" : "speed2"
+                var now = new Date()
+                var ridedate = Date.parse(date)
+                var expiredClass = ""
+                if (ridedate < now) {
+                    expiredClass = "pastride"
+                }
+                return speedClass + " " + expiredClass
+            },
+            
+            headers: [
+                {
+                    text: 'Date',
+                    value: 'when',
+                    class: 'rideheadercell',
+                    sortable: false,
+                    align: 'center'
+                },
+                {
+                    text: 'Time/Place',
+                    value: 'meet',
+                    class: 'rideheadercell hidden-xs-only',
+                    sortable: false,
+                    align: 'center'
+                },
+                {
+                    text: 'Ride #',
+                    value: 'ridenum',
+                    class: 'rideheadercell',
+                    sortable: false,
+                    align: 'center'
+                },
+                {
+                    text: 'Description',
+                    value: 'ridedesc',
+                    class: 'rideheadercell',
+                    sortable: false,
+                    align: 'center'
+                },
+                {
+                    text: 'Pace',
+                    value: 'pace',
+                    class: 'rideheadercell hidden-xs-only',
+                    sortable: false,
+                    align: 'center'
+                },
+                {
+                    text: 'Length',
+                    value: 'ridelength',
+                    class: 'rideheadercell',
+                    sortable: false,
+                    align: 'center'
+                },
+                {
+                    text: 'Food?',
+                    value: 'food',
+                    class: 'rideheadercell hidden-xs-only',
+                    sortable: false,
+                    align: 'center'
+                },
+                {
+                    text: 'Rating',
+                    value: 'rating',
+                    class: 'rideheadercell hidden-xs-only',
+                    sortable: false,
+                    align: 'center'
+                },
+                {
+                    text: 'Leader',
+                    value: 'leader',
+                    class: 'rideheadercell hidden-xs-only',
+                    sortable: false,
+                    align: 'center'
+                },
       ],
       rides: [
       {
@@ -838,7 +894,6 @@ export default {
     border: 1px solid black;
     padding-left: 8px;
     padding-right: 8px;
-    text-align: center;
     color: black;
   }
   #ridetable td {

@@ -48,7 +48,7 @@
         
         <v-flex xs12 sm5 class="text-xs-left">
           <strong>Day Filter:</strong>
-          <v-btn-toggle multiple round v-model="showDays" v-on:change="toggleDays()">
+          <v-btn-toggle multiple v-model="showDays" v-on:change="toggleDays()">
             <v-btn outline color="primary">
               Su
             </v-btn>
@@ -73,8 +73,8 @@
           </v-btn-toggle>
         </v-flex>
         
-        <v-flex xs12 sm3 class="">
-          <strong>Show:</strong>
+        <v-flex xs12 sm3 class="text-xs-left">
+          <strong>History Filter:</strong>
           <v-btn-toggle multiple v-model="showExpireds" v-on:change="toggleExpired()">
             <v-btn outline dark color="primary">
               Past

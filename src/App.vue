@@ -3,10 +3,10 @@
   <v-content>
     <v-container grid-list-md text-xs-center>
       <v-layout row wrap>
-        <v-flex xs12>
+        <v-flex xs12 order-sm0 order-xs0>
           <h2>GEARs April 2018 Rides</h2>
         </v-flex>
-        <v-flex xs12 sm6>
+        <v-flex xs12 sm6 order-sm1 order-xs5>
           <v-card>
             <v-card-text class="text-xs-left gears-intro">
               GEARs (Greater Eugene Area Riders) invites all
@@ -24,29 +24,38 @@
             </v-card-text>
           </v-card>
         </v-flex>
-        <v-flex xs12 sm6>
-          <v-card>
-            <v-card-text class="text-xs-left">
-              <p>
-                <strong>Terrain Key:</strong><br>
-                <strong>A:</strong> Flat with gently rolling terrain.<br>
-                <strong>B:</strong> Rolling Terrain with a few short, steep climbs.<br>
-                <strong>C:</strong> Moderate rolling terrain with steeper, longer climbs.<br>
-                <strong>D:</strong> Demanding terrain with frequent steep and/or sustained climbs.<br>
-                <strong>Note:</strong> You should be an experienced cyclist to participate and enjoy
-                C and D rides, or rides over 50 miles.
-              </p>
-              <p>
-                <strong>Food Key:</strong><br>
-                <strong>FS</strong> - Food store on route<br>
-                <strong>FR</strong> - Restaurant stop<br>
-                <strong>BF</strong> - Bring food<br>
-              </p>
-            </v-card-text>
-          </v-card>
+        <v-flex xs12 sm6 order-sm2 order-xs6>
+          <v-layout row wrap>
+            <v-flex>
+              <v-card>
+                <v-card-text class="text-xs-left">
+                  <p>
+                    <strong>Terrain Key:</strong><br>
+                    <strong>A:</strong> Flat with gently rolling terrain.<br>
+                    <strong>B:</strong> Rolling Terrain with a few short, steep climbs.<br>
+                    <strong>C:</strong> Moderate rolling terrain with steeper, longer climbs.<br>
+                    <strong>D:</strong> Demanding terrain with frequent steep and/or sustained climbs.<br>
+                    <strong>Note:</strong> You should be an experienced cyclist to participate and enjoy
+                    C and D rides, or rides over 50 miles.
+                  </p>
+                </v-card-text>
+              </v-card>
+            </v-flex>
+            <v-flex>
+              <v-card>
+                <v-card-text class="text-xs-left">
+                  <p>
+                    <strong>Food Key:</strong><br>
+                    <strong>FS</strong> - Food store on route<br>
+                    <strong>FR</strong> - Restaurant stop<br>
+                    <strong>BF</strong> - Bring food<br>
+                  </p>
+                </v-card-text>
+              </v-card>
+            </v-flex>
+          </v-layout>
         </v-flex>
-        
-        <v-flex xs12 sm5 class="text-xs-left">
+        <v-flex xs12 sm5 class="text-xs-left" order-sm3 order-xs1>
           <strong>Day Filter:</strong>
           <v-btn-toggle multiple v-model="showDays" v-on:change="toggleDays()">
             <v-btn outline color="primary">
@@ -73,7 +82,7 @@
           </v-btn-toggle>
         </v-flex>
         
-        <v-flex xs12 sm3 class="text-xs-left">
+        <v-flex xs12 sm3 class="text-xs-left" order-sm4 order-xs2>
           <strong>History Filter:</strong>
           <v-btn-toggle multiple v-model="showExpireds" v-on:change="toggleExpired()">
             <v-btn outline dark color="primary">
@@ -85,7 +94,7 @@
           </v-btn-toggle>
         </v-flex>
         
-        <v-flex xs12 sm4 class="text-xs-left text-sm-right">
+        <v-flex xs12 sm4 class="text-xs-left text-sm-right" order-sm5 order-xs3>
           <strong>Pace Filter:</strong>
           <v-btn-toggle multiple v-model="showSpeeds" v-on:change="toggleSpeeds()">
             <v-btn outline dark color="primary">
@@ -107,7 +116,7 @@
              </v-btn>
         </v-flex> -->
         
-        <v-flex xs12>
+        <v-flex xs12 order-sm6 order-xs4>
           <v-data-table v-bind:headers="headers" v-bind:items="rides" item-key="when"
                         hide-actions disable-initial-sort id="ridetable"
                         >
@@ -203,7 +212,7 @@
               </template>
             </v-data-table>
           </v-flex>
-          <v-flex xs12>
+          <v-flex xs12 order-sm7 order-xs4>
             <table>
               <tr>
                 <td><strong>Color Key:</strong></td>
@@ -219,7 +228,7 @@
               </tr>
             </table>
           </v-flex>
-          <v-flex xs12>
+          <v-flex xs12 order-sm8 order-xs8>
             <v-card>
               <v-card-text class="text-xs-left">
                 <p>
@@ -250,7 +259,7 @@
             </v-card>
           </v-flex>
 
-          <v-flex xs12>
+          <v-flex xs12 order-sm9 order-xs9>
             <img src="static/gears_web_logo.png"/>
           </v-flex>
 

@@ -451,7 +451,7 @@ export default {
       "ridelength": "60 Miles",
       "ridenum": "409b",
       "thumbnail": "static/409b.png",
-      "when": "Sun Apr 01 2018 09:00:01 GMT-0800 (PST)"
+      "when": "Sun Apr 01 2018 09:00:01 GMT-0700 (PDT)"
       },
       {
       "food": "BF",
@@ -463,7 +463,7 @@ export default {
       "ridedesc": "Hills for the 'dis-in-climbed'",
       "ridelength": "20-40 Miles",
       "ridenum": "##",
-      "when": "Mon Apr 02 2018 10:00:02 GMT-0800 (PST)"
+      "when": "Mon Apr 02 2018 10:00:02 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/1125c-McKenzie-Clearwater.pdf",
@@ -478,7 +478,7 @@ export default {
       "ridelength": "39 Miles",
       "ridenum": "125c",
       "thumbnail": "static/125c.png",
-      "when": "Tue Apr 03 2018 10:00:03 GMT-0800 (PST)"
+      "when": "Tue Apr 03 2018 10:00:03 GMT-0700 (PDT)"
       },
       {
       "food": "BF",
@@ -490,7 +490,7 @@ export default {
       "ridedesc": "Riding some hills - Route will be determined at start",
       "ridelength": "25-50 Miles",
       "ridenum": "##",
-      "when": "Tue Apr 03 2018 09:00:04 GMT-0800 (PST)"
+      "when": "Tue Apr 03 2018 09:00:04 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/12/209c-Cue-Sheet-Sheet1.pdf",
@@ -505,7 +505,7 @@ export default {
       "ridelength": "35 Miles",
       "ridenum": "209c",
       "thumbnail": "static/209c.png",
-      "when": "Thu Apr 05 2018 09:00:05 GMT-0800 (PST)"
+      "when": "Thu Apr 05 2018 09:00:05 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/10/319b-Cue-Sheet1.pdf",
@@ -520,7 +520,7 @@ export default {
       "ridelength": "35 Miles",
       "ridenum": "319b",
       "thumbnail": "static/319b.png",
-      "when": "Sat Apr 07 2018 09:00:06 GMT-0800 (PST)"
+      "when": "Sat Apr 07 2018 09:00:06 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/03/210a-Cue-Sheet.pdf",
@@ -535,7 +535,7 @@ export default {
       "ridelength": "62 Miles",
       "ridenum": "210a",
       "thumbnail": "static/210a.png",
-      "when": "Sat Apr 07 2018 09:00:07 GMT-0800 (PST)"
+      "when": "Sat Apr 07 2018 09:00:07 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/03/210a-Cue-Sheet.pdf",
@@ -550,7 +550,7 @@ export default {
       "ridelength": "62 Miles",
       "ridenum": "210a",
       "thumbnail": "static/210a.png",
-      "when": "Sat Apr 07 2018 09:00:08 GMT-0800 (PST)"
+      "when": "Sat Apr 07 2018 09:00:08 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/12/214-Cue-Sheet-Sheet1.pdf",
@@ -565,7 +565,7 @@ export default {
       "ridelength": "38 Miles",
       "ridenum": "214a",
       "thumbnail": "static/214a.png",
-      "when": "Sun Apr 08 2018 09:00:09 GMT-0800 (PST)"
+      "when": "Sun Apr 08 2018 09:00:09 GMT-0700 (PDT)"
       },
       {
       "food": "BF",
@@ -577,7 +577,7 @@ export default {
       "ridedesc": "Hills for the 'dis-in-climbed'",
       "ridelength": "20-40 Miles",
       "ridenum": "##",
-      "when": "Mon Apr 09 2018 10:00:10 GMT-0800 (PST)"
+      "when": "Mon Apr 09 2018 10:00:10 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/02/103d-Cue-Sheet-Sheet1.pdf",
@@ -592,7 +592,7 @@ export default {
       "ridelength": "32 Miles",
       "ridenum": "103d",
       "thumbnail": "static/103d.png",
-      "when": "Tue Apr 10 2018 10:00:11 GMT-0800 (PST)"
+      "when": "Tue Apr 10 2018 10:00:11 GMT-0700 (PDT)"
       },
       {
       "food": "BF",
@@ -604,7 +604,7 @@ export default {
       "ridedesc": "Riding some hills - Route will be determined at start",
       "ridelength": "25-50 Miles",
       "ridenum": "##",
-      "when": "Tue Apr 10 2018 09:00:12 GMT-0800 (PST)"
+      "when": "Tue Apr 10 2018 09:00:12 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/02/114b-Cue-Sheet-Sheet1.pdf",
@@ -619,7 +619,7 @@ export default {
       "ridelength": "35 Miles",
       "ridenum": "114b",
       "thumbnail": "static/114b.png",
-      "when": "Thu Apr 12 2018 09:00:13 GMT-0800 (PST)"
+      "when": "Thu Apr 12 2018 09:00:13 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/418a-Camp-Creek-thurston.pdf",
@@ -634,7 +634,7 @@ export default {
       "ridelength": "37 Miles",
       "ridenum": "418b",
       "thumbnail": "static/418b.png",
-      "when": "Sat Apr 14 2018 09:00:14 GMT-0800 (PST)"
+      "when": "Sat Apr 14 2018 09:00:14 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://www.eugenegears.org/ridesheets/413a.pdf",
@@ -649,7 +649,7 @@ export default {
       "ridelength": "48 Miles",
       "ridenum": "413a",
       "thumbnail": "static/413a.png",
-      "when": "Sat Apr 14 2018 09:00:15 GMT-0800 (PST)"
+      "when": "Sat Apr 14 2018 09:00:15 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://www.eugenegears.org/ridesheets/413a.pdf",
@@ -664,7 +664,7 @@ export default {
       "ridelength": "48 Miles",
       "ridenum": "413a",
       "thumbnail": "static/413a.png",
-      "when": "Sat Apr 14 2018 09:00:16 GMT-0800 (PST)"
+      "when": "Sat Apr 14 2018 09:00:16 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/02/320a-Cue-Sheet-Sheet1.pdf",
@@ -679,7 +679,7 @@ export default {
       "ridelength": "41 Miles",
       "ridenum": "320a",
       "thumbnail": "static/320a.png",
-      "when": "Sun Apr 15 2018 09:00:17 GMT-0800 (PST)"
+      "when": "Sun Apr 15 2018 09:00:17 GMT-0700 (PDT)"
       },
       {
       "food": "BF",
@@ -691,7 +691,7 @@ export default {
       "ridedesc": "Hills for the 'dis-in-climbed'",
       "ridelength": "20-40 Miles",
       "ridenum": "##",
-      "when": "Mon Apr 16 2018 10:00:18 GMT-0800 (PST)"
+      "when": "Mon Apr 16 2018 10:00:18 GMT-0700 (PDT)"
       },
       {
       "food": "BF",
@@ -703,7 +703,7 @@ export default {
       "ridedesc": "Riding some hills - Route will be determined at start",
       "ridelength": "25-50 Miles",
       "ridenum": "##",
-      "when": "Tue Apr 17 2018 09:00:19 GMT-0800 (PST)"
+      "when": "Tue Apr 17 2018 09:00:19 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/1125c-McKenzie-Clearwater.pdf",
@@ -718,7 +718,7 @@ export default {
       "ridelength": "25 Miles",
       "ridenum": "125c",
       "thumbnail": "static/125c.png",
-      "when": "Thu Apr 19 2018 09:00:20 GMT-0800 (PST)"
+      "when": "Thu Apr 19 2018 09:00:20 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/2014/01/403b_Alt_Cue-Sheet.pdf",
@@ -733,7 +733,7 @@ export default {
       "ridelength": "34 Miles",
       "ridenum": "403b",
       "thumbnail": "static/403b.png",
-      "when": "Sat Apr 21 2018 09:00:21 GMT-0800 (PST)"
+      "when": "Sat Apr 21 2018 09:00:21 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/10/401f-Cue.pdf",
@@ -748,7 +748,7 @@ export default {
       "ridelength": "39 Miles",
       "ridenum": "401f",
       "thumbnail": "static/401f.png",
-      "when": "Sat Apr 21 2018 09:00:22 GMT-0800 (PST)"
+      "when": "Sat Apr 21 2018 09:00:22 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/125b-Cue-Sheet.pdf",
@@ -763,7 +763,7 @@ export default {
       "ridelength": "29 Miles",
       "ridenum": "125b",
       "thumbnail": "static/125b.png",
-      "when": "Sun Apr 22 2018 13:30:23 GMT-0800 (PST)"
+      "when": "Sun Apr 22 2018 13:30:23 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/10/105a-Cue.pdf",
@@ -778,7 +778,7 @@ export default {
       "ridelength": "75 Miles",
       "ridenum": "105a",
       "thumbnail": "static/105a.png",
-      "when": "Sun Apr 22 2018 09:00:24 GMT-0800 (PST)"
+      "when": "Sun Apr 22 2018 09:00:24 GMT-0700 (PDT)"
       },
       {
       "food": "BF",
@@ -790,7 +790,7 @@ export default {
       "ridedesc": "Hills for the 'dis-in-climbed'",
       "ridelength": "20-40 Miles",
       "ridenum": "##",
-      "when": "Mon Apr 23 2018 10:00:25 GMT-0800 (PST)"
+      "when": "Mon Apr 23 2018 10:00:25 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/12/209c-Cue-Sheet-Sheet1.pdf",
@@ -805,7 +805,7 @@ export default {
       "ridelength": "35 Miles",
       "ridenum": "209c",
       "thumbnail": "static/209c.png",
-      "when": "Tue Apr 24 2018 10:00:26 GMT-0800 (PST)"
+      "when": "Tue Apr 24 2018 10:00:26 GMT-0700 (PDT)"
       },
       {
       "food": "BF",
@@ -817,7 +817,7 @@ export default {
       "ridedesc": "Riding some hills - Route will be determined at start",
       "ridelength": "25-50 Miles",
       "ridenum": "##",
-      "when": "Tue Apr 24 2018 09:00:27 GMT-0800 (PST)"
+      "when": "Tue Apr 24 2018 09:00:27 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/02/114b-Cue-Sheet-Sheet1.pdf",
@@ -832,7 +832,7 @@ export default {
       "ridelength": "35 Miles",
       "ridenum": "114b",
       "thumbnail": "static/114b.png",
-      "when": "Thu Apr 26 2018 09:00:28 GMT-0800 (PST)"
+      "when": "Thu Apr 26 2018 09:00:28 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/03/106-Cue-Sheet.pdf",
@@ -847,7 +847,7 @@ export default {
       "ridelength": "51 Miles",
       "ridenum": "106a",
       "thumbnail": "static/106a.png",
-      "when": "Sat Apr 28 2018 09:00:29 GMT-0800 (PST)"
+      "when": "Sat Apr 28 2018 09:00:29 GMT-0700 (PDT)"
       },
       {
       "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/05/403a-CueSheet.pdf",
@@ -862,7 +862,7 @@ export default {
       "ridelength": "35 Miles",
       "ridenum": "403a",
       "thumbnail": "static/403a.png",
-      "when": "Sun Apr 29 2018 09:00:30 GMT-0800 (PST)"
+      "when": "Sun Apr 29 2018 09:00:30 GMT-0700 (PDT)"
       },
       {
       "food": "BF",
@@ -874,7 +874,7 @@ export default {
       "ridedesc": "Hills for the 'dis-in-climbed'",
       "ridelength": "20-40 Miles",
       "ridenum": "##",
-      "when": "Mon Apr 30 2018 10:00:31 GMT-0800 (PST)"
+      "when": "Mon Apr 30 2018 10:00:31 GMT-0700 (PDT)"
       }
       ]
     }

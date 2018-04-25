@@ -16,3 +16,7 @@ npm run build
 ```
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## Contributing
+
+* [Code of Conduct](https://github.com/eugenegears/calendar/blob/master/.github/CODE_OF_CONDUCT.md)

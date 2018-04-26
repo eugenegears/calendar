@@ -142,7 +142,9 @@
                         <li>Location: {{rides.item.meet}}</li>
                         <li>Pace: {{rides.item.pace}}</li>
                         <li>Length: {{rides.item.ridelength}}</li>
-                        <li>Food?: {{rides.item.food}}</li>
+                        <li v-if="Object.keys(foodDescriptions).indexOf(rides.item.food) >= 0">
+                          Food: {{ foodDescriptions[rides.item.food] }}
+                        </li>
                         <li>Rating: {{rides.item.rating}}</li>
                         <li>Leader: {{rides.item.leader}}</li>
                         <li>Contact: {{rides.item.phone}}</li>
@@ -380,7 +382,11 @@ export default {
                 }
                 return speedClass + " " + expiredClass
             },
-            
+            foodDescriptions: {
+                "FS": "Food Store on Route",
+                "BF": "Bring Food",
+                "FR": "Restaurant Stop"
+            },
             headers: [
                 {
                     text: 'Date',

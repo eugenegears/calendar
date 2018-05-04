@@ -10,7 +10,7 @@ module.exports = {
         from: './*.html'
       },
       {
-        from: './static/*.png'
+        from: './static/*'
       },
     ])
   ],

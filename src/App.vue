@@ -261,8 +261,12 @@
             </v-card>
           </v-flex>
 
-          <v-flex xs12 order-sm9 order-xs9>
+          <v-flex xs12 order-sm9 order-xs9 hidden-sm-and-down>
             <img src="static/gears_web_logo.png"/>
+          </v-flex>
+
+          <v-flex xs12 order-sm9 order-xs9 hidden-md-and-up>
+            <img src="static/gears_web_logo_sm.jpg"/>
           </v-flex>
 
         </v-layout>

@@ -55,67 +55,68 @@
             </v-flex>
           </v-layout>
         </v-flex>
-        <v-flex xs12 sm5 class="text-xs-left" order-sm3 order-xs1>
-          <strong>Day Filter:</strong>
-          <v-btn-toggle multiple v-model="showDays" v-on:change="toggleDays()">
-            <v-btn outline color="primary">
-              Su
-            </v-btn>
-            <v-btn outline color="primary">
-              Mo
-            </v-btn>
-            <v-btn outline color="primary">
-              Tu
-            </v-btn>
-            <v-btn outline color="primary">
-              We
-            </v-btn>
-            <v-btn outline color="primary">
-              Th
-            </v-btn>
-            <v-btn outline color="primary">
-              Fr
-            </v-btn>
-            <v-btn outline color="primary">
-              Sa
-            </v-btn>
-          </v-btn-toggle>
+        
+        <v-flex xs1 order-sm3 order-xs1>
+          <v-btn color="primary" v-on:click.stop="filterDialog = true">
+            <v-icon>filter_list</v-icon>&nbsp;Ride Filters
+          </v-btn>
+          <v-dialog v-model="filterDialog" max-width="440px">
+            <v-card>
+              <v-card-title>
+                Ride Filters
+              </v-card-title>
+              <v-container fluid pa-1>
+                <v-layout>
+                  <v-flex>
+                    <table>
+                      <tr>
+                        <td align="right"><strong>Day:</strong></td>
+                        <td>
+                          <v-btn-toggle multiple v-model="showDays" v-on:change="toggleDays()">
+                            <v-btn outline color="primary">S</v-btn>
+                            <v-btn outline color="primary">M</v-btn>
+                            <v-btn outline color="primary">T</v-btn>
+                            <v-btn outline color="primary">W</v-btn>
+                            <v-btn outline color="primary">T</v-btn>
+                            <v-btn outline color="primary">F</v-btn>
+                            <v-btn outline color="primary">S</v-btn>
+                          </v-btn-toggle>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right"><strong>History:</strong></td>
+                        <td>
+                          <v-btn-toggle multiple v-model="showExpireds" v-on:change="toggleExpired()">
+                            <v-btn outline dark color="primary">Past</v-btn>
+                            <v-btn outline dark color="primary">Future</v-btn>
+                          </v-btn-toggle>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right"><strong>Pace:</strong></td>
+                        <td>
+                          <v-btn-toggle multiple v-model="showSpeeds" v-on:change="toggleSpeeds()">
+                            <v-btn outline dark color="primary">10-12</v-btn>
+                            <v-btn outline dark color="primary">12-15</v-btn>
+                            <v-btn outline dark color="primary">16+</v-btn>
+                          </v-btn-toggle>
+                        </td>
+                      </tr>
+                    </table>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+              <v-container fluid align-end pa-0>
+                <v-layout>
+                  <v-flex xs2 offset-xs7 offset-md8>
+                    <v-btn color="primary" flat v-on:click.stop="filterDialog = false">Close</v-btn>
+                  </v-flex>
+                </v-layout>
+                </v-container>
+            </v-card>
+          </v-dialog>
         </v-flex>
-        
-        <v-flex xs12 sm3 class="text-xs-left" order-sm4 order-xs2>
-          <strong>History Filter:</strong>
-          <v-btn-toggle multiple v-model="showExpireds" v-on:change="toggleExpired()">
-            <v-btn outline dark color="primary">
-              Past
-            </v-btn>
-            <v-btn outline dark color="primary">
-              Future
-            </v-btn>
-          </v-btn-toggle>
-        </v-flex>
-        
-        <v-flex xs12 sm4 class="text-xs-left text-sm-right" order-sm5 order-xs3>
-          <strong>Pace Filter:</strong>
-          <v-btn-toggle multiple v-model="showSpeeds" v-on:change="toggleSpeeds()">
-            <v-btn outline dark color="primary">
-              10-12
-            </v-btn>
-            <v-btn outline dark color="primary">
-              12-15
-            </v-btn>
-            <v-btn outline dark color="primary">
-              16+
-            </v-btn>
-          </v-btn-toggle>
-        </v-flex>
-        
-        <!-- <v-flex xs12 md12 lg12>
-             <v-btn>
-               filters
-               <v-switch class="pa-0" color="green" v-model="filter_enabled"></v-switch>
-             </v-btn>
-        </v-flex> -->
-        
+
         <v-flex xs12 order-sm6 order-xs4>
           <v-data-table v-bind:headers="headers" v-bind:items="rides" item-key="when"
                         hide-actions disable-initial-sort id="ridetable"
@@ -297,7 +298,7 @@ export default {
     },
     data () {
         return {
-            filter_enabled: true,
+            filterDialog: false,
             dayOfWeek: function (d) {
                 return dateFormat(d, "dddd")
             },
@@ -328,7 +329,7 @@ export default {
             toggleExpired: function() {
                 setArrayToStorage("localStorage", "expired", this.showExpireds)
             },
-            
+
             showSpeed: function (s) {
                 if (/10./.test(s)) {
                     return _.includes(this.showSpeeds, 0)
@@ -1002,5 +1003,8 @@ export default {
   }
   .gears-intro {
     font-size: 17px;
+  }
+  .debug {
+    background: pink;
   }
 </style>

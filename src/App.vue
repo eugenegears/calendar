@@ -60,7 +60,7 @@
           <v-btn color="primary" v-on:click.stop="filterDialog = true">
             <v-icon>filter_list</v-icon>&nbsp;Ride Filters
           </v-btn>
-          <v-dialog v-model="filterDialog" max-width="440px">
+          <v-dialog v-model="filterDialog" max-width="314px">
             <v-card>
               <v-card-title>
                 Ride Filters

@@ -267,6 +267,13 @@
           </v-flex>
 
         </v-layout>
+        <div id="copyright" class="text-xs-left">
+          <a href="https://github.com/b-jazz">&copy;b-jazz</a>
+        </div>
+
+        <div id="bug-link" class="text-xs-left">
+          <a href="https://github.com/eugenegears/calendar/issues/new">Submit bug report or feature request.</a>
+        </div>
       </v-container>
 
     </v-content>

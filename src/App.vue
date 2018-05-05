@@ -29,27 +29,23 @@
             <v-flex>
               <v-card>
                 <v-card-text class="text-xs-left">
-                  <p>
-                    <strong>Terrain Key:</strong><br>
-                    <strong>A:</strong> Flat with gently rolling terrain.<br>
-                    <strong>B:</strong> Rolling Terrain with a few short, steep climbs.<br>
-                    <strong>C:</strong> Moderate rolling terrain with steeper, longer climbs.<br>
-                    <strong>D:</strong> Demanding terrain with frequent steep and/or sustained climbs.<br>
-                    <strong>Note:</strong> You should be an experienced cyclist to participate and enjoy
-                    C and D rides, or rides over 50 miles.
-                  </p>
+                  <strong>Terrain Key:</strong><br>
+                  <strong>A:</strong> Flat with gently rolling terrain.<br>
+                  <strong>B:</strong> Rolling Terrain with a few short, steep climbs.<br>
+                  <strong>C:</strong> Moderate rolling terrain with steeper, longer climbs.<br>
+                  <strong>D:</strong> Demanding terrain with frequent steep and/or sustained climbs.<br>
+                  <strong>Note:</strong> You should be an experienced cyclist to participate and enjoy
+                  C and D rides, or rides over 50 miles.
                 </v-card-text>
               </v-card>
             </v-flex>
             <v-flex>
               <v-card>
                 <v-card-text class="text-xs-left">
-                  <p>
-                    <strong>Food Key:</strong><br>
-                    <strong>FS</strong> - Food store on route<br>
-                    <strong>FR</strong> - Restaurant stop<br>
-                    <strong>BF</strong> - Bring food<br>
-                  </p>
+                  <strong>Food Key:</strong><br>
+                  <strong>FS</strong> - Food store on route<br>
+                  <strong>FR</strong> - Restaurant stop<br>
+                  <strong>BF</strong> - Bring food<br>
                 </v-card-text>
               </v-card>
             </v-flex>

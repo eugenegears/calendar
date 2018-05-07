@@ -114,7 +114,7 @@
         </v-flex>
 
         <v-flex xs12 order-sm6 order-xs4>
-          <v-data-table v-bind:headers="headers" v-bind:items="rides" item-key="when"
+          <v-data-table v-bind:headers="headers" v-bind:items="filteredRides" item-key="when"
                         hide-actions disable-initial-sort id="ridetable"
                         >
             <!-- <template slot="headers" slot-scope="rides"> -->
@@ -284,6 +284,7 @@
 var dateFormat = require("dateformat")
 var _ = require("lodash")
 import { storageAvailable, getZeroBasedArrayFromStorage, setArrayToStorage, populateStorage } from "./storage"
+import { filterRides } from "./filters"
 
 export default {
     mounted: function () {
@@ -359,12 +360,12 @@ export default {
                 var now = new Date()
                 var ridedate = Date.parse(d)
                 if ((ridedate < now) && _.includes(this.showExpireds, 0)) {
-                    // ride happened in the past, but we're showing past events
+                    // ride happened in the past, but we are showing past events
                     return true
                 }
                 //console.log("dateinfo: " + ridedate + " " + now + " " + this.showExpireds)
                 if ((ridedate > now) && _.includes(this.showExpireds, 1)) {
-                    // ride happens in the future, and we're showing future events
+                    // ride happens in the future, and we are showing future events
                     return true
                 }
                 return false
@@ -949,6 +950,14 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    filteredRides: function () {
+      let speedsConfig = this.showSpeeds
+      let expiredsConfig = this.showExpireds
+      let daysConfig = this.showDays
+      return _.filter(this.rides, function(r) { return filterRides(r, speedsConfig, expiredsConfig, daysConfig) })
+    },
   }
 }
 </script>

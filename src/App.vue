@@ -114,7 +114,7 @@
         </v-flex>
 
         <v-flex xs12 order-sm6 order-xs4>
-          <v-data-table v-bind:headers="headers" v-bind:items="rides" item-key="when"
+          <v-data-table v-bind:headers="headers" v-bind:items="filteredRides" item-key="when"
                         hide-actions disable-initial-sort id="ridetable"
                         >
             <!-- <template slot="headers" slot-scope="rides"> -->
@@ -158,7 +158,6 @@
               </template>
               <template slot="items" slot-scope="rides">
                 <tr id="riderow"
-                    v-show="showSpeedAndDay(rides.item.pace, rides.item.when)"
                     v-bind:class="speedAndExpiredClasses(rides.item.pace, rides.item.when)"
                     v-on:click="rides.expanded = !rides.expanded"
                     >
@@ -284,6 +283,7 @@
 var dateFormat = require("dateformat")
 var _ = require("lodash")
 import { storageAvailable, getZeroBasedArrayFromStorage, setArrayToStorage, populateStorage } from "./storage"
+import { filterRides } from "./filters"
 
 export default {
     mounted: function () {
@@ -332,53 +332,6 @@ export default {
             toggleExpired: function() {
                 setArrayToStorage("localStorage", "expired", this.showExpireds)
             },
-
-            showSpeed: function (s) {
-                if (/10./.test(s)) {
-                    return _.includes(this.showSpeeds, 0)
-                    // return this.showSpeeds[0]
-                } else if (/16/.test(s)) {
-                    return _.includes(this.showSpeeds, 2)
-                    // return this.showSpeeds[2]
-                } else {
-                    return _.includes(this.showSpeeds, 1)
-                    // return this.showSpeeds[1]
-                }
-            },
-            showDay: function (d) {
-                // var dayNames = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
-                var dateMillis = Date.parse(d)
-                var dateObj = new Date(dateMillis)
-                // return _.includes(this.showDays, dayNames[dateObj.getDay()])
-                return _.includes(this.showDays, dateObj.getDay())
-            },
-            showExpired: function(d) {
-                if (_.includes(this.showExpireds, 0) && _.includes(this.showExpireds, 1)) {
-                    return true
-                }
-                var now = new Date()
-                var ridedate = Date.parse(d)
-                if ((ridedate < now) && _.includes(this.showExpireds, 0)) {
-                    // ride happened in the past, but we're showing past events
-                    return true
-                }
-                //console.log("dateinfo: " + ridedate + " " + now + " " + this.showExpireds)
-                if ((ridedate > now) && _.includes(this.showExpireds, 1)) {
-                    // ride happens in the future, and we're showing future events
-                    return true
-                }
-                return false
-            },
-            showSpeedAndDay: function (s, d) {
-                var ss = this.showSpeed(s)
-                // console.log("showSpeed(" + s + "): " + ss)
-                var sd = this.showDay(d)
-                // console.log("showDay(" + d + "): " + sd)
-                
-                var se = this.showExpired(d)
-                return ss && sd && se
-                // return this.showSpeed(s) && this.showDay(d)
-            },
             
             speedAndExpiredClasses: function (pace, date) {
                 var speedClass = /10/.test(pace) ? "speed1" : /16/.test(pace) ? "speed3" : "speed2"
@@ -390,6 +343,7 @@ export default {
                 }
                 return speedClass + " " + expiredClass
             },
+
             foodDescriptions: {
                 "FS": "Food Store on Route",
                 "BF": "Bring Food",
@@ -949,6 +903,14 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    filteredRides: function () {
+      let speedsConfig = this.showSpeeds
+      let expiredsConfig = this.showExpireds
+      let daysConfig = this.showDays
+      return _.filter(this.rides, function(r) { return filterRides(r, speedsConfig, expiredsConfig, daysConfig) })
+    },
   }
 }
 </script>

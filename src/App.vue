@@ -158,7 +158,7 @@
               </template>
               <template slot="items" slot-scope="rides">
                 <tr id="riderow"
-                    v-bind:class="speedAndExpiredClasses(rides.item.pace, rides.item.when)"
+                    v-bind:class="speedAndExpiredClasses(rides.item)"
                     v-on:click="rides.expanded = !rides.expanded"
                     >
 
@@ -214,6 +214,10 @@
             <table>
               <tr>
                 <td><strong>Color Key:</strong></td>
+                <td class="speed0" align="left">Women only</td>
+              </tr>
+              <tr>
+                <td/>
                 <td class="speed1" align="left">10-12 MPH leader pace</td>
               </tr>
               <tr>
@@ -333,11 +337,15 @@ export default {
                 setArrayToStorage("localStorage", "expired", this.showExpireds)
             },
             
-            speedAndExpiredClasses: function (pace, date) {
-                var speedClass = /10/.test(pace) ? "speed1" : /16/.test(pace) ? "speed3" : "speed2"
+            speedAndExpiredClasses: function (ride) {
+                var speedClass = /10/.test(ride["pace"]) ? "speed1" : /16/.test(ride["pace"]) ? "speed3" : "speed2"
                 var now = new Date()
-                var ridedate = Date.parse(date)
+                var ridedate = Date.parse(ride["when"])
                 var expiredClass = ""
+                
+                if (/women.only.ride/i.test(ride["ridedesc"])) {
+                    speedClass = "speed0"
+                }
                 if (ridedate < now) {
                     expiredClass = "pastride"
                 }
@@ -935,6 +943,9 @@ export default {
     line-height: 1.2;
     height: 38px;
     border: 1px solid black;
+  }
+  .speed0 {
+    background-color: #E0E0D3;
   }
   .speed1 {
     background-color: #FFF3CA;

@@ -59,43 +59,61 @@
           <v-dialog v-model="filterDialog" max-width="314px">
             <v-card>
               <v-card-title>
-                Ride Filters
+                <strong>Ride Filters</strong>
               </v-card-title>
-              <v-container fluid pa-1>
+              <v-container align-center pa-2>
                 <v-layout>
-                  <v-flex>
+                  <v-flex d-flex>
                     <table>
                       <tr>
                         <td align="right"><strong>Day:</strong></td>
                         <td>
-                          <v-btn-toggle multiple v-model="showDays" v-on:change="toggleDays()">
-                            <v-btn outline color="primary">S</v-btn>
-                            <v-btn outline color="primary">M</v-btn>
-                            <v-btn outline color="primary">T</v-btn>
-                            <v-btn outline color="primary">W</v-btn>
-                            <v-btn outline color="primary">T</v-btn>
-                            <v-btn outline color="primary">F</v-btn>
-                            <v-btn outline color="primary">S</v-btn>
-                          </v-btn-toggle>
+                          <v-container grid-list-xs>
+                            <v-layout>
+                              <v-flex d-flex>
+                                <v-btn-toggle multiple v-model="showDays" v-on:change="toggleDays()">
+                                  <v-btn outline class="flex-grow" color="primary">S</v-btn>
+                                  <v-btn outline class="flex-grow" color="primary">M</v-btn>
+                                  <v-btn outline class="flex-grow" color="primary">T</v-btn>
+                                  <v-btn outline class="flex-grow" color="primary">W</v-btn>
+                                  <v-btn outline class="flex-grow" color="primary">T</v-btn>
+                                  <v-btn outline class="flex-grow" color="primary">F</v-btn>
+                                  <v-btn outline class="flex-grow" color="primary">S</v-btn>
+                                </v-btn-toggle>
+                              </v-flex>
+                            </v-layout>
+                          </v-container>
                         </td>
                       </tr>
                       <tr>
                         <td align="right"><strong>History:</strong></td>
                         <td>
-                          <v-btn-toggle multiple v-model="showExpireds" v-on:change="toggleExpired()">
-                            <v-btn outline dark color="primary">Past</v-btn>
-                            <v-btn outline dark color="primary">Future</v-btn>
-                          </v-btn-toggle>
+                          <v-container grid-list-xs>
+                            <v-layout>
+                              <v-flex d-flex>
+                                <v-btn-toggle multiple v-model="showExpireds" v-on:change="toggleExpired()">
+                                  <v-btn outline dark class="flex-grow" color="primary">Past</v-btn>
+                                  <v-btn outline dark class="flex-grow" color="primary">Future</v-btn>
+                                </v-btn-toggle>
+                              </v-flex>
+                            </v-layout>
+                          </v-container>
                         </td>
                       </tr>
                       <tr>
                         <td align="right"><strong>Pace:</strong></td>
                         <td>
-                          <v-btn-toggle multiple v-model="showSpeeds" v-on:change="toggleSpeeds()">
-                            <v-btn outline dark color="primary">10-12</v-btn>
-                            <v-btn outline dark color="primary">12-15</v-btn>
-                            <v-btn outline dark color="primary">16+</v-btn>
-                          </v-btn-toggle>
+                          <v-container grid-list-xs>
+                            <v-layout>
+                              <v-flex d-flex>
+                                <v-btn-toggle multiple v-model="showSpeeds" v-on:change="toggleSpeeds()">
+                                  <v-btn outline dark class="flex-grow" color="primary">10-12</v-btn>
+                                  <v-btn outline dark class="flex-grow" color="primary">12-15</v-btn>
+                                  <v-btn outline dark class="flex-grow" color="primary">16+</v-btn>
+                                </v-btn-toggle>
+                              </v-flex>
+                            </v-layout>
+                          </v-container>
                         </td>
                       </tr>
                     </table>
@@ -104,7 +122,7 @@
               </v-container>
               <v-container fluid align-end pa-0>
                 <v-layout>
-                  <v-flex xs2 offset-xs7 offset-md8>
+                  <v-flex xs2 offset-xs8 offset-md8>
                     <v-btn color="primary" flat v-on:click.stop="filterDialog = false">Close</v-btn>
                   </v-flex>
                 </v-layout>
@@ -924,63 +942,66 @@ export default {
 </script>
 
 <style media="screen">
-  #ridetable {
+#ridetable {
     border: 1px solid black;
-  }
-  #rideheader {
+}
+#rideheader {
     border: 2px solid black;
     height: 28px;
-  }
-  #ridetable .rideheadercell {
+}
+#ridetable .rideheadercell {
     border: 1px solid black;
     padding-left: 8px;
     padding-right: 8px;
     color: black;
-  }
-  #ridetable td {
+}
+#ridetable td {
     padding-left: 2px;
     padding-right: 2px;
     line-height: 1.2;
     height: 38px;
     border: 1px solid black;
-  }
-  .speed0 {
+}
+.speed0 {
     background-color: #E0E0D3;
-  }
-  .speed1 {
+}
+.speed1 {
     background-color: #FFF3CA;
-  }
-  .speed2 {
+}
+.speed2 {
     background-color: white;
-  }
-  .speed3 {
+}
+.speed3 {
     background-color: #F7D1D3;
-  }
-  .pastride {
+}
+.pastride {
     color: #BBBBBB;
-  }
-  .ridelength {
+}
+.ridelength {
     white-space: nowrap;
-  }
-  .pace {
+}
+.pace {
     white-space: nowrap;
-  }
-  .date {
+}
+.date {
     text-align: left;
-  }
-  .where {
+}
+.where {
     text-align: left;
-  }
-  .leader,.ridedesc {
+}
+.leader,.ridedesc {
     text-align: left;
-  }
-  .nowrap {
+}
+.nowrap {
     white-space: nowrap;
-  }
-  .gears-intro {
+}
+.gears-intro {
     font-size: 17px;
-  }
-  .debug {
+}
+.debug {
     background: pink;
-  }
+}
+.flex-grow {
+    flex-grow: 1;
+}
 </style>

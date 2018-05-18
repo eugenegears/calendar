@@ -288,10 +288,10 @@ var dateFormat = require("dateformat")
 var _ = require("lodash")
 import { storageAvailable, getZeroBasedArrayFromStorage, setArrayToStorage, populateStorage } from "./storage"
 import { filterRides } from "./filters"
+import { warn } from "./debug"
 
 export default {
     mounted: function () {
-        // console.log("mounted, and value of showSpeeds is: " + this.showSpeeds)
         var storage = window.localStorage
         // if it exists and is empty (OK) or if it exists and has value (i.e. "truthy")
         if (!(storage.getItem("speeds") === "" || storage.getItem("speeds"))) {
@@ -300,8 +300,8 @@ export default {
         this.showSpeeds = getZeroBasedArrayFromStorage("localStorage", "speeds", 3)
         this.showDays = getZeroBasedArrayFromStorage("localStorage", "days", 7)
         this.showExpireds = getZeroBasedArrayFromStorage("localStorage", "expired", 2)
-        // console.log("showDays: " + this.showDays)
-        // console.log("showSpeeds: " + this.showSpeeds)
+        warn("showDays: " + this.showDays)
+        warn("showSpeeds: " + this.showSpeeds)
     },
     data () {
         return {
@@ -324,12 +324,12 @@ export default {
             showExpireds: [],
             
             toggleDays: function() {
-                // console.log("locally store this for days: " + this.showDays)
+                warn("locally store this for days: " + this.showDays)
                 setArrayToStorage("localStorage", "days", this.showDays)
             },
             
             toggleSpeeds: function() {
-                // console.log('locally store this for speeds: ' + this.showSpeeds)
+                warn('locally store this for speeds: ' + this.showSpeeds)
                 setArrayToStorage("localStorage", "speeds", this.showSpeeds)
             },
             

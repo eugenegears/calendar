@@ -462,7 +462,7 @@ export default {
                     "leader": "Jeff Sprague",
                     "mapurl": "https://ridewithgps.com/routes/27646797",
                     "meet": "Alton Baker Park",
-                    "pace": "12-15 mph",
+                    "pace": "16+ mph",
                     "phone": "541-484-4434",
                     "rating": "C",
                     "ridedesc": "Dillard, Bear Creek Rd, Jasper to Weyerhauser",

@@ -733,18 +733,6 @@ export default {
                     "when": "Sat Jul 21 2018 08:30:21 GMT-0800 (PST)"
                 },
                 {
-                    "food": "BF",
-                    "leader": "Jackie Murdoff",
-                    "meet": "Alton Baker Park",
-                    "pace": "10-12 mph",
-                    "phone": "541-345-3941",
-                    "rating": "C",
-                    "ridedesc": "Carpool to White's Park in Sweet Home for a ride up Quartz Creek Rd to Yellowbottom Campground, Out & Back. 2740 Elev. Gain. RSVP to Jackie at 541-345-3941.",
-                    "ridelength": "61 Miles",
-                    "ridenum": "##",
-                    "when": "Sat Jul 21 2018 07:00:22 GMT-0800 (PST)"
-                },
-                {
                     "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/03/210a-Cue-Sheet.pdf",
                     "food": "FS",
                     "leader": "Kristin Yarris",
@@ -763,13 +751,13 @@ export default {
                     "food": "BF",
                     "leader": "Jackie Murdoff",
                     "meet": "Alton Baker Park",
-                    "pace": "12-15 mph",
+                    "pace": "10-12 mph",
                     "phone": "541-345-3941",
                     "rating": "C",
-                    "ridedesc": "Riding some hills - Route will be determined at start",
-                    "ridelength": "25-50 Miles",
+                    "ridedesc": "Carpool to White's Park in Sweet Home for a ride up Quartz Creek Rd to Yellowbottom Campground, Out & Back. 2740 Elev. Gain. RSVP to Jackie at 541-345-3941.",
+                    "ridelength": "61 Miles",
                     "ridenum": "##",
-                    "when": "Tue Jul 24 2018 08:30:24 GMT-0800 (PST)"
+                    "when": "Tue Jul 24 2018 07:00:22 GMT-0800 (PST)"
                 },
                 {
                     "cuesheet": "http://eugenegears.org/wp-content/uploads/2013/02/114b-Cue-Sheet-Sheet1.pdf",
